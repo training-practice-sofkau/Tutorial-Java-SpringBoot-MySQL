@@ -24,12 +24,11 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional(readOnly = true)
     public List<Contacto> getList();
 
     /**
-     * Devuelve una lista de Contactos con todos contactos del sistema ordenados por el campo indicado ya sea ascendente
-     * o descendete
+     * Devuelve una lista de Contactos con todos contactos del sistema ordenados por el campo indicado
+     * (nombre o apellido) ya sea ascendente o descendente
      *
      * @param field campo por el cual ordenar
      * @param order método de ordenado ASC o DESC
@@ -38,11 +37,10 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional(readOnly = true)
     public List<Contacto> getList(String field, Sort.Direction order);
 
     /**
-     * Busca un dato entre el nombre o los apellidos en un contacto
+     * Busca un dato dado entre el nombre y/o los apellidos en un contacto
      *
      * @param dataToSearch Dato a buscar
      * @return Lita de contactos
@@ -50,7 +48,6 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional(readOnly = true)
     public List<Contacto> searchContacto(String dataToSearch);
 
     /**
@@ -62,7 +59,6 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     public Contacto createContacto(Contacto contacto);
 
     /**
@@ -74,7 +70,6 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     public Telefono createTelefono(Telefono telefono);
 
     /**
@@ -87,11 +82,10 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     Contacto updateContacto(Integer id, Contacto contacto);
 
     /**
-     * Actualiza el nombre de un contacto
+     * Actualiza el nombre de un contacto basado en su identificador
      *
      * @param id Identificador del contacto a actualizar
      * @param contacto Objeto del contacto a actualizar
@@ -100,11 +94,10 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     public Contacto updateNombre(Integer id, Contacto contacto);
 
     /**
-     * Actualiza el apellido de un contacto
+     * Actualiza el apellido de un contacto basado en su identificador
      *
      * @param id Identificador del contacto a actualizar
      * @param contacto Objeto del contacto a actualizar
@@ -113,11 +106,10 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     public Contacto updateApellidos(Integer id, Contacto contacto);
 
     /**
-     * Actualiza la tupla completa de un teléfono en el sistema
+     * Actualiza la tupla completa de un teléfono en el sistema basado en su identificador
      *
      * @param id Identificador del teléfono a actualizar
      * @param telefono Objeto del teléfono a actualizar
@@ -126,7 +118,6 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     public Telefono updateTelefono(Integer id, Telefono telefono);
 
     /**
@@ -139,11 +130,10 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     public Telefono updateOnlyTelefono(Integer id, Telefono telefono);
 
     /**
-     * Borra un contacto del sistema
+     * Borra un contacto del sistema basado en su identificador
      *
      * @param id Identificación del contacto a borrar
      * @return Objeto del contacto borrado
@@ -151,11 +141,10 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     Contacto deleteContacto(Integer id);
 
     /**
-     * Borra un teléfono del sistema
+     * Borra un teléfono del sistema basado en su identificador
      *
      * @param id Identificación del teléfono a borrar
      * @return Objeto del teléfono borrado
@@ -163,6 +152,5 @@ public interface ILibreta {
      * @author Julian Lasso <julian.lasso@sofka.com.co>
      * @since 1.0.0
      */
-    @Transactional
     Telefono deleteTelefono(Integer id);
 }
