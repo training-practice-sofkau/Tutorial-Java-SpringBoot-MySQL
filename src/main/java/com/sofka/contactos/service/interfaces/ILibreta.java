@@ -3,7 +3,6 @@ package com.sofka.contactos.service.interfaces;
 import com.sofka.contactos.domain.Contacto;
 import com.sofka.contactos.domain.Telefono;
 import org.springframework.data.domain.Sort;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
